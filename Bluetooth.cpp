@@ -1,19 +1,28 @@
 #include "Bluetooth.h"
-#include <SoftwareSerial.h>
+#include "Motor.h"
+#include "RpmInformation.h"
+#include "Processador.h"
+#include<SoftwareSerial.h>
 #include <Arduino.h>
-Bluetooth::Bluetooth(int rx, int tx): bt(rx, tx){
-  
+
+Bluetooth::Bluetooth(int tx, int rx): bt(tx, rx) {
   bt.begin(9600);
-  Serial.begin(9600);
 }
 
-String Bluetooth::read() {
-  //Check received a byte from bluetooth by software serial
-  if (Serial.available()) {
+void Bluetooth::read(Processador processador, RpmInformation rpmInfo, Motor motor) {
+
+  if (bt.available() > 0) {
+    
     String comando = bt.readStringUntil('\n');
-    Serial.print(comando); //Print the byte to hardware serial
-    return comando;
-  } else {
-    return "";
+    comando = comando.substring(0, comando.length() - 2);
+    bt.println(comando);
+    String resposta = processador.processarComando(comando, motor, rpmInfo);
+    bt.println(resposta);
+  }
+}
+
+void Bluetooth::escrever(String mensagem) {
+  if(bt.available() > 0) {
+    bt.println(mensagem);
   }
 }

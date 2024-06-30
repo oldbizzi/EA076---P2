@@ -13,7 +13,7 @@ void RpmInformation::setRpm(Encoder encoder) {
 
     int voltas = encoder.getContador()/2;
     float tempoEntreAmostragem = float(encoder.getAmostragem() * 2)/float(2000);
-    rpm = int(encoder.getContador()*segundos/(tempoEntreAmostragem));
+    rpm = int(encoder.getContador() * segundos/(tempoEntreAmostragem));
     setMilhar();
     setCentena();
     setDezena();

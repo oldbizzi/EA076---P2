@@ -21,7 +21,7 @@ LCD lcd(12, 11, 10, 9, 8, 7);
 RpmInformation rpmInfo(0);
 Motor motor(5, 6, 3);
 Encoder encoder(2);
-Bluetooth bt(0, 1);
+Bluetooth bt(4, 13);
 Processador processador(100);
 
 void setup() {
@@ -40,15 +40,15 @@ void setup() {
 
 void loop() {
   i2c.escreverDisplay(rpmInfo);
-  processador.processarComando(bt.read(), motor, rpmInfo);
+  bt.read(processador, rpmInfo, motor);
 }
 
 ISR(TIMER0_COMPA_vect) {
-  
+
   cont++;
 
   encoder.incrementaTimer();
-  
+
   if (cont >= 2000) {
     cont = 0;
   }

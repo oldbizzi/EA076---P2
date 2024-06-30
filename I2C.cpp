@@ -43,8 +43,6 @@ void I2C::escreverDisplay(RpmInformation rpmInfo) {
 
 void I2C::transmitir(byte val) {
 
-  digitalWrite(13, !digitalRead(13));
-
   Wire.beginTransmission(porta);
   Wire.write(val);
   Wire.endTransmission();

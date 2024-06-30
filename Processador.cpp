@@ -24,8 +24,7 @@ Processador::Processador(int a) {
 }
 
 String Processador::processarComando(String comando, Motor motor, RpmInformation rpm) {
-
-      digitalWrite(13, HIGH);
+  
     if (comando == NULL) {
         return "";
     }
@@ -43,8 +42,8 @@ String Processador::processarComando(String comando, Motor motor, RpmInformation
         } else if (valor.toInt() > 100 ) {
             return ERRO_PARAMETRO_INCORRETO;
         } else {
-        	return "OK VEL " + valor + "\n";
           motor.girar(valor.toInt() * 2.55);
+        	return "OK VEL " + valor + "\n";
         }
     }
 
