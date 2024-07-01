@@ -1,10 +1,12 @@
 #include <Arduino.h>
 #include "Encoder.h"
 
+// Construtor
 Encoder::Encoder(int temp) {
   this->pino = temp;
 }
 
+// Configura as interrupões do encoder para o pino 2 e para borda de subida
 void Encoder::configuraInterrupcoes() {
   pinMode(pino, INPUT);
   EIMSK |= (1 << INT0);
@@ -12,6 +14,7 @@ void Encoder::configuraInterrupcoes() {
   amostragem = 2000;
 }
 
+// getters e setters
 int Encoder::getContador() {
   return this->contadorInterrupcao;
 }

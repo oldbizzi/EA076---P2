@@ -9,6 +9,10 @@ Bluetooth::Bluetooth(int tx, int rx): bt(tx, rx) {
   bt.begin(9600);
 }
 
+/**
+ * Método responsável pela leitura do bluetooth
+ * Lendo e processando os dados com a classe de processamento, printando a resposta ao final
+ */
 void Bluetooth::read(Processador processador, RpmInformation rpmInfo, Motor motor) {
 
   if (bt.available() > 0) {
@@ -21,6 +25,9 @@ void Bluetooth::read(Processador processador, RpmInformation rpmInfo, Motor moto
   }
 }
 
+/**
+ * Método responsável pela escrita do bluetooth
+ */
 void Bluetooth::escrever(String mensagem) {
   if(bt.available() > 0) {
     bt.println(mensagem);

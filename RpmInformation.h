@@ -2,6 +2,16 @@
 #define RPMINFORMATION_H
 #include <Arduino.h>
 #include "Encoder.h"
+
+/**
+ * Classe responsável pela manipuação dos valores de rpm
+ * Atributos:
+ * rpm: última leitura da velocidade do motor feita pelo encoder
+ * milhar: número de milhares do rpm
+ * centena: número de centenas do rpm
+ * dezena: número de dezenas do rpm
+ * unidade: número de unidades do rpm
+ */
 class RpmInformation {
   public:
     RpmInformation(int temp);

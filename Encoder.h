@@ -1,6 +1,14 @@
 #ifndef ENCODER_H
 #define ENCODER_H
 
+/**
+ * Classe responsável pela manipulação das informações do encoder
+ * Atributos:
+ * pino: pino que ativa as interrupções
+ * contadorInterrupcao: contador de pulsos do encoder, a cada interrupção soma-se um ao contador
+ * amostragem: tempo entre cada amostragem do encoder para determinar a velocidade
+ * timer: contador para temporizar a amostragem 
+ */
 class Encoder {
     
     public:

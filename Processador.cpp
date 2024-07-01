@@ -20,7 +20,6 @@
 #define LER_VELOCIDADE "RETVEL"
 
 Processador::Processador(int a) {
-
 }
 
 String Processador::processarComando(String comando, Motor motor, RpmInformation rpm) {
@@ -47,7 +46,7 @@ String Processador::processarComando(String comando, Motor motor, RpmInformation
         }
     }
 
-      	// Detecta se é um dos comandos possíveis	
+    // Detecta se é um dos comandos possíveis	
     else if (comando.compareTo(VENTILADOR) == 0) {
         motor.parar();
         motor.ventilador();

@@ -1,6 +1,7 @@
 #include "Motor.h"
 #include <Arduino.h>
 
+// Construtor do motor, configura os pinos conectados à ponte H como saída e os coloca em LOW
 Motor::Motor(int pinA, int pinY, int pinPWM) {
   
   pinMode(pinA, OUTPUT);
@@ -13,7 +14,7 @@ Motor::Motor(int pinA, int pinY, int pinPWM) {
   digitalWrite(pinY, LOW);
 };
 
-
+// Método para configuração da velocidade por meio do pino PWM
 void Motor::girar(int velocidade) {
 
   digitalWrite(pinA, HIGH);

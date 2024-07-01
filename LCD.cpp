@@ -7,6 +7,7 @@ LCD::LCD(int rs, int enable, int D4, int D5, int D6, int D7): lcd(rs, enable, D4
   lcd.begin(16, 2);
 }
 
+// Método para a escrita das informações no LCD
 void LCD::escrever(RpmInformation rpmInformation) {
 
   lcd.clear();
